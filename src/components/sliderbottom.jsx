@@ -32,6 +32,8 @@ function get(){
  
 const Sliderbottom=()=>{
    const [data,setData]=React.useState([])
+   const [hindi,setHindi]=React.useState([])
+   const [movies,setMovies]=React.useState([])
    document.querySelector("body").style.backgroundColor="black"
 
    var settings = {
@@ -73,7 +75,11 @@ const Sliderbottom=()=>{
 
     React.useEffect(()=>{
         get()
-        .then((res)=>setData(res.data[0].ZeeOriginals))
+        .then((res)=>{
+          return[
+          setData(res.data[0].ZeeOriginals),setMovies(res.data[0].Movies),setHindi(res.data[0].Hindi)
+          ]
+        })
      },[])
 
      
@@ -84,8 +90,8 @@ const Sliderbottom=()=>{
             {
             data&&data?.map((el,index)=>{
                return (
-                  <div>
-                     <img width={200} height={50} src={el.src}/>     
+                  <div className="pictest">
+                     <img width={200} height="100%" src={el.src}/>     
                   </div>
                )
             })
@@ -93,10 +99,22 @@ const Sliderbottom=()=>{
          </Slider><br/><br/>
          <Slider {...settings}> 
             {
-            data&&data?.map((el,index)=>{
+            hindi&&hindi?.map((el,index)=>{
                return (
-                  <div>
-                     <img width={200} height={50} src={el.src}/>     
+                  <div className="pictest">
+                     <img width={200} height="100%" src={el.src}/>
+                     <p>{el.p}</p>     
+                  </div>
+               )
+            })
+            }
+         </Slider>
+         <Slider {...settings}> 
+            {
+            movies&&movies?.map((el,index)=>{
+               return (
+                  <div className="pictest">
+                     <img width={200} height="100%" src={el.src}/>     
                   </div>
                )
             })
