@@ -40,6 +40,8 @@ const Sliders=()=>{
    speed: 500,
    slidesToShow: 1,
    slidesToScroll: 1,
+   nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
    autoplay: true,
       speed: 3000,
       autoplaySpeed: 3000,

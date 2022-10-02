@@ -6,6 +6,7 @@ import {faXmarkCircle} from "@fortawesome/free-solid-svg-icons"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { PassContext } from "./context/passcontext";
+import {AuthContext} from "../components/context/authcontext"
 
 
 
@@ -14,6 +15,7 @@ const Navbar=()=>{
     const [search,setSearch]=React.useState([])
     const [flag,setFlag]=React.useState(false)
     const {log,changelog}=React.useContext(PassContext)
+    const {accumulate}=React.useContext(AuthContext)
     const navigate=useNavigate()
     
     const getsearch=(e)=>{
@@ -38,6 +40,15 @@ const Navbar=()=>{
     const close=()=>{
         document.getElementById("moviesugg").style.display="none"
     }
+
+    const videodata=(rslt)=>{
+        console.log(rslt)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${rslt}&key=AIzaSyD1OpQVFjWfNt9YaNiKfQfgGlGpoTuaLIw`)
+        .then((res)=>accumulate(res.data.items))
+        .catch((err)=>console.log(err))
+         navigate("/movies")
+     }
+
    return(
     <Box gap='20%' className="navm">
         <Box display='flex' alignItems='center' ml='50px' color='white' gap='20px'>
@@ -69,7 +80,7 @@ const Navbar=()=>{
         {
             search&&search?.map((el)=>{
                 return(
-                    <Box textAlign='left' key={el.imdbID} color='white' display='flex'>
+                    <Box textAlign='left' key={el.imdbID} color='white' display='flex' onClick={()=>videodata(el.Title)}>
                        <Box><Image h='50px' w='50px' src={el.Poster}/></Box>
                        <Box>{el.Title}</Box>
                     </Box>
