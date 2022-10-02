@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faXmarkCircle} from "@fortawesome/free-solid-svg-icons"
 import axios from "axios";
-import {Sliders} from "./slider";
-import Sliderbottom from "./sliderbottom";
-import Footer from "./footer";
+import { useNavigate } from "react-router-dom";
+import { PassContext } from "./context/passcontext";
 
 
 
@@ -14,7 +13,9 @@ const Navbar=()=>{
     document.querySelector("body").style.backgroundColor="black"
     const [search,setSearch]=React.useState([])
     const [flag,setFlag]=React.useState(false)
-
+    const {log,changelog}=React.useContext(PassContext)
+    const navigate=useNavigate()
+    
     const getsearch=(e)=>{
         axios.get(`https://www.omdbapi.com/?apikey=3f8a2d27&s=${e.target.value}`)
         .then((res)=>{
@@ -23,6 +24,13 @@ const Navbar=()=>{
         })
         .catch((err)=>console.log(err))
     } 
+    const move=()=>{
+        if(log){
+            changelog();
+        }else{
+        navigate("/login")
+        }
+    }
     
     if(flag&&search){
         document.getElementById("moviesugg").style.display="block"
@@ -30,13 +38,13 @@ const Navbar=()=>{
     const close=()=>{
         document.getElementById("moviesugg").style.display="none"
     }
-   return[
-    <Box display='flex'  mt={5} gap='20%' >
+   return(
+    <Box gap='20%' className="navm">
         <Box display='flex' alignItems='center' ml='50px' color='white' gap='20px'>
-            <Link to="/login"><Image w='40px' h='40px' src='https://www.zee5.com/images/ZEE5_logo.svg?ver=2.52.40'/></Link>
-            <Link>Home</Link>
+            <Link to="/"><Image w='40px' h='40px' src='https://www.zee5.com/images/ZEE5_logo.svg?ver=2.52.40'/></Link>
+            <Link to="/">Home</Link>
             <Link>TV Shows</Link>
-            <Link>Movies</Link>
+            <Link to='/movies'>Movies</Link>
             <Link>Web Series</Link>
             <Link>News</Link>
             <Menu>
@@ -53,12 +61,11 @@ const Navbar=()=>{
             </Menu>
         </Box>
         <Box display='flex' gap={30}>
-            <Input w={300} onChange={getsearch} color='white' placeholder='Search for Movies,Shows,Channels etc' />
-            <Button colorScheme='blue'>Login</Button>
+            <Input w={300} onChange={getsearch} color='white' placeholder='Search for Movies,Shows,Channels etc' position='relative' />
+            <Button colorScheme='blue' onClick={move}>{!log?"LOGIN":"LOGOUT"}</Button>
             <Button color='white' bgColor='#8230c6'>BUY PLAN</Button>
         </Box>
-    </Box>,
-    <Container display="none" id="moviesugg"><FontAwesomeIcon cursor='pointer' color='white' icon={faXmarkCircle} onClick={close}></FontAwesomeIcon>
+        <Container position='absolute' top="80%" bgColor='black' display="none" id="moviesugg"><FontAwesomeIcon cursor='pointer' color='white' icon={faXmarkCircle} onClick={close}></FontAwesomeIcon>
         {
             search&&search?.map((el)=>{
                 return(
@@ -69,11 +76,8 @@ const Navbar=()=>{
                 )
             })
         }
-    </Container>,
-    <Sliders/>,
-    <Sliderbottom/>,
-    <Footer/>
-
-   ]
+    </Container>
+    </Box>
+    )
 }
 export default Navbar;

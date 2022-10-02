@@ -1,6 +1,18 @@
 import React from "react";
-import {Container,FormControl,FormLabel,Input,Box,CircularProgress,Button,Alert,AlertIcon} from "@chakra-ui/react"
-import { useNavigate } from "react-router-dom";
+import {Container,Input,Box,CircularProgress,Button,Alert,AlertIcon} from "@chakra-ui/react"
+import { useNavigate,Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faGoogle} from "@fortawesome/free-brands-svg-icons"
+
+const dis={
+    opacity:"0.6",
+    cursor:"no-drop"
+}
+const abc={
+    backgroundColor:"#8230c6",
+    color:"white",
+    cursor:"pointer"
+}
 
 
 const Signup=()=>{
@@ -42,7 +54,7 @@ const Signup=()=>{
         Create an account to continue enjoying uninterrupted video and personalised experience
         </Box>
         <Button marginTop={30} p={5} colorScheme='teal' w={320} bgColor="teal" borderRadius="10px" size='xs'>
-            Sign in
+        <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>  Sign in
         </Button>
         <Box marginTop={30} marginLeft="42%" p={3} w="15%" borderRadius="50%" bgColor="violet">
             or
@@ -51,9 +63,12 @@ const Signup=()=>{
         <Box marginTop={50} color="white">
             By Proceeding you agree to our Terms Of Services & Private Policy.
         </Box>
-        <Button onClick={sendotp} marginTop={50} p={10} colorScheme='teal' w={320} bgColor="black" border="1px solid gray" color="gray" borderRadius="10px" size='xs'>
+        <Button onClick={sendotp} style={num.length==10?abc:dis} marginTop={50} p={10} colorScheme='teal' w={320} bgColor="black" border="1px solid gray" color="gray" borderRadius="10px" size='xs'>
            {!flag? "Send OTP":<CircularProgress isIndeterminate color='green.300' />}
         </Button>
+        <Box color="white">
+            Already a user? <Link color='#8230c6' to="/login">Login</Link>
+        </Box>
         {
             al&&<Box id="alertBox"><Alert  status='success'>
                         <AlertIcon id="icon" w={30} />

@@ -1,10 +1,8 @@
 import React from "react";
-import { Container,Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import axios from "axios";
 import Slider from "react-slick";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowAltCircleLeft} from "@fortawesome/free-solid-svg-icons"
-import {faArrowAltCircleRight} from "@fortawesome/free-solid-svg-icons"
+
 
 function SampleNextArrow(props) {
    const { className, style, onClick } = props;
@@ -29,7 +27,7 @@ function SampleNextArrow(props) {
  }
 
 function get(){
-   return axios.get("http://localhost:3004/homepage")
+   return axios.get("https://zee5-cott.herokuapp.com/homepage")
 }
 
 const Sliders=()=>{
@@ -55,13 +53,13 @@ const Sliders=()=>{
 
    
     return(
-       <Box w="80%" margin='auto' mt='40px'>
+       <Box w="80%" margin='auto' mt='100px' className="amitab">
          <Slider {...settings}>
           {
             data&&data?.map((el,index)=>{
                return(
                   
-                   <img src={el.src} alt="hi" className="image"/>    
+                   <img src={el.src} alt="hi" className="image" key={index}/>    
 
                )
             })

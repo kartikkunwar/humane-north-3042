@@ -39,7 +39,7 @@
 #alertBox{
   position: absolute;
   height: 200px;
-  width: 400px;
+  width: 500px;
   top: 280px;
   left: 50px;
   background-color: gray;
@@ -49,7 +49,7 @@
 }
 #butt{
   margin-top: 150px;
-  margin-left: -45%;
+  margin-left: -53%;
   padding: 10px;
   width: 30%;
   background-color: teal;
@@ -93,6 +93,13 @@
   z-index: 2;
   border-radius: 20px;
 }
+#moviesugg1{
+  width: 100%;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 20px;
+}
 #outer{
   position: relative;
   height: 100vh;
@@ -116,8 +123,22 @@
   right:0%;
 }
 .pictest{
-  height: 200px;
+  height: 250px;
 }
+.navm{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  background-color: black;
+  top: 0;
+}
+body{
+  position: relative;
+}
+
 
 
 

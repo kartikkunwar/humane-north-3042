@@ -4,15 +4,16 @@ import Sliderbottom from "../components/sliderbottom";
 import Navbar from "../components/navbar"
 import Footer from "../components/footer";
 import { Sliders } from "../components/slider";
+import Video from "../components/video";
 
-const Home=()=>{
+const Movies=()=>{
     return(
         <div>
         <Navbar/>
-        <Sliders/>
+        <Video/>
         <Sliderbottom/>
         <Footer/>
         </div>
     )
 }
-export default Home;
+export default Movies;

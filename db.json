@@ -9,6 +9,16 @@
       "email": "kartik@gmail.com",
       "pass": "1234",
       "id": 2
+    },
+    {
+      "email": "champu@gmail.com",
+      "pass": "1234abc",
+      "id": 3
+    },
+    {
+      "email": "champu@gmail.com",
+      "pass": "1234",
+      "id": 4
     }
   ],
   "homepage": [

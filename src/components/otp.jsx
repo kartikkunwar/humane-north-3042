@@ -48,6 +48,8 @@ const Otp=()=>{
     const verify=()=>{
         if(val=="1234"){
             navigate("/register")
+        }else{
+          alert("wrong OTP")
         }
     }
 
