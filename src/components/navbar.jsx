@@ -1,5 +1,5 @@
 import React from "react";
-import { Container,Menu,MenuButton,MenuList,MenuItem,Input,Box,Button,Image} from "@chakra-ui/react";
+import { Container,Menu,MenuButton,MenuList,MenuItem,Input,Box,Button,Image,Divider} from "@chakra-ui/react";
 import { Link } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faXmarkCircle} from "@fortawesome/free-solid-svg-icons"
@@ -17,6 +17,8 @@ const Navbar=()=>{
     const {log,changelog}=React.useContext(PassContext)
     const {accumulate}=React.useContext(AuthContext)
     const navigate=useNavigate()
+
+    
     
     const getsearch=(e)=>{
         axios.get(`https://www.omdbapi.com/?apikey=3f8a2d27&s=${e.target.value}`)
@@ -53,11 +55,11 @@ const Navbar=()=>{
     <Box gap='20%' className="navm">
         <Box display='flex' alignItems='center' ml='50px' color='white' gap='20px'>
             <Link to="/"><Image w='40px' h='40px' src='https://www.zee5.com/images/ZEE5_logo.svg?ver=2.52.40'/></Link>
-            <Link to="/">Home</Link>
-            <Link>TV Shows</Link>
-            <Link to='/movies'>Movies</Link>
-            <Link>Web Series</Link>
-            <Link>News</Link>
+            <Link className="navhov" to="/">Home</Link>
+            <Link className="navhov">TV Shows</Link>
+            <Link className="navhov" to='/movies'>Movies</Link>
+            <Link className="navhov">Web Series</Link>
+            <Link className="navhov">News</Link>
             <Menu>
                 <MenuButton>
                     Actions
@@ -79,12 +81,13 @@ const Navbar=()=>{
         <Container position='absolute' top="80%" bgColor='black' display="none" id="moviesugg"><FontAwesomeIcon cursor='pointer' color='white' icon={faXmarkCircle} onClick={close}></FontAwesomeIcon>
         {
             search&&search?.map((el)=>{
-                return(
-                    <Box textAlign='left' key={el.imdbID} color='white' display='flex' onClick={()=>videodata(el.Title)}>
-                       <Box><Image h='50px' w='50px' src={el.Poster}/></Box>
-                       <Box>{el.Title}</Box>
-                    </Box>
-                )
+                return[
+                    <Box className="hvchng" textAlign='left' key={el.imdbID} color='white' display='flex' alignItems='center' onClick={()=>videodata(el.Title)} cursor='pointer' mt={2} gap={5}>
+                       <Box h='50px' w='20%'><Image h='100%' w='100%' src={el.Poster}/></Box>
+                       <Box w="70%">{el.Title}</Box>
+                    </Box>,
+                    <Divider orientation='horizontal' />
+                ]
             })
         }
     </Container>

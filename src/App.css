@@ -124,6 +124,13 @@
 }
 .pictest{
   height: 250px;
+  cursor: pointer;
+}
+.pictest:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
 }
 .navm{
   width: 100%;
@@ -138,7 +145,13 @@
 body{
   position: relative;
 }
-
+.navhov:hover{
+  text-decoration: underline;
+}
+.hvchng:hover{
+  background-color: #61dafb;
+}
+  
 
 
 

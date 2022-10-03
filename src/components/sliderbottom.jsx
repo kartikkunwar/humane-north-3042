@@ -139,7 +139,7 @@ const Sliderbottom=()=>{
             {
             marathi&&marathi?.map((el,index)=>{
                return (
-                  <div className="pictest" key={index}>
+                  <div className="pictest" key={index} onClick={()=>videodata(el.p)}>
                      <Image width='90%' height="100%" src={el.src}/>
                      <Text color='white'>{el.p}</Text>     
                   </div>
