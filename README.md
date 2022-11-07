@@ -4,14 +4,10 @@
 # Zee-5
 
 
-<img align="right" alt="Coding" width="400" src="inner.png">
 
+![zee5](https://user-images.githubusercontent.com/105916551/200227460-e38792c3-4f2f-4e29-badc-5af68e44e767.png)
 
 ## Description
-
-
-
-
 
 - To create something challenging and expirience how to produce a website.
 -You can watch variety of movies ans tv shows online and register yourself as an user.
@@ -40,7 +36,6 @@
 
 
 ### Screenshots
-<img align="left" alt="Coding" width="550" src="https://github.com/Dev-Mriganka/Deccan-Herald/blob/main/Assets/DH-L.png">
-<img align="left" alt="Coding" width="250" src="https://github.com/Dev-Mriganka/Deccan-Herald/blob/main/Assets/DH-T.png">
-<img align="left" alt="Coding" width="150" src="https://github.com/Dev-Mriganka/Deccan-Herald/blob/main/Assets/DH-M.png">
 
+![other](https://user-images.githubusercontent.com/105916551/200226180-cca8e28a-bc37-4798-8ab0-29f2c39fbdc7.png)
+![video](https://user-images.githubusercontent.com/105916551/200227288-0fc7c09e-5b91-42ae-995e-b0659c3e487f.png)
