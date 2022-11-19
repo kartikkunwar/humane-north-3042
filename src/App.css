@@ -36,17 +36,6 @@
     transform: rotate(360deg);
   }
 }
-#alertBox{
-  position: absolute;
-  height: 200px;
-  width: 500px;
-  top: 280px;
-  left: 50px;
-  background-color: gray;
-  border-radius: 40px;
-  display: block;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
 #butt{
   margin-top: 150px;
   margin-left: -53%;
@@ -58,6 +47,7 @@
 }
 #icon{
   margin-left: 50px;
+  
 }
 .list:hover{
   color: black;
@@ -87,6 +77,15 @@
   border: 1px solid white;
   width: 20%;
   margin-left: 55%;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 2;
+  border-radius: 20px;
+}
+#moviesuggsmall{
+  border: 1px solid white;
+  width: 60%;
   height: 200px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -136,11 +135,15 @@
   width: 100%;
   height: 70px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 2;
   background-color: black;
   top: 0;
+}
+.smalls{
+  display: none;
 }
 body{
   position: relative;
@@ -151,7 +154,23 @@ body{
 .hvchng:hover{
   background-color: #61dafb;
 }
-  
+@media screen and (max-width:980px){
+  .navm{
+    display: none;
+  }
+  .smalls{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    background-color: black;
+    top: 0;
+    color: white;
+  }
+}
 
 
 

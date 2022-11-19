@@ -7,12 +7,12 @@ import { Sliders } from "../components/slider";
 
 const Home=()=>{
     return(
-        <div>
+        <>
         <Navbar/>
         <Sliders/>
         <Sliderbottom/>
         <Footer/>
-        </div>
+        </>
     )
 }
 export default Home;

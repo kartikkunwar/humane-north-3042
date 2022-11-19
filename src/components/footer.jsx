@@ -6,24 +6,24 @@ import {faTwitter,faFacebook,faInstagram,faGooglePlay} from "@fortawesome/free-b
 const Footer=()=>{
     document.querySelector("body").style.backgroundColor="black"
   return(
-    <Box mt="30px">
-        <Box>
-            <HStack spacing={400}>
-                <Box ml='120px' color='white' display='flex' gap="20px">
+    <Box mt="30px"  width={{base:'100%',md:'90%',lg:'80%'}} margin='auto'>
+        <Box display={{base:'block',md:'block',lg:'flex'}} justifyContent='space-between'>
+            
+                <Box  color='white' display='flex' gap="20px">
                     Download Apps
                     <Box><Image src="https://www.zee5.com/images/play_store.png?ver=2.52.40"/></Box>
                     <Box><Image src="https://www.zee5.com/images/app_store.png?ver=2.52.40"/></Box>
                 </Box>
-                <Box color='white'gap="30px" display='flex'>
+                <Box color='white' gap="30px" display='flex' mt={{base:'50px',md:'50px',lg:'0px'}}>
                     Connect with us
                     <Box className="brand" ><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></Box>
                     <Box className="brand" ><FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon></Box>
                     <Box className="brand" ><FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon></Box>                  
                     <Box className="brand" ><FontAwesomeIcon icon={faGooglePlay}></FontAwesomeIcon></Box> 
                 </Box>
-            </HStack>
+           
         </Box>
-        <Box color='white' ml='120px' mt='30px'>
+        <Box color='white'  mt='30px'>
             <HStack >
                <Box display='flex' gap='10px'>
                  About Us 
@@ -42,8 +42,7 @@ const Footer=()=>{
                 </Box>
             </HStack>
         </Box>
-        <Box color='white' ml='105px' mt='30px'>
-           <HStack gap='70px' textAlign='left'>
+        <Box color='white'  mt='30px' display={{base:'block',md:'block',lg:'flex'}} justifyContent='space-between'>
              <Box>
                 <UnorderedList id="lasting">
                     <ListItem>Popular TV shows</ListItem>
@@ -75,10 +74,9 @@ const Footer=()=>{
                     <ListItem className="item">Kunadali Bhagya</ListItem>
                     <ListItem className="item">Bhagya Lakshami</ListItem>
                 </UnorderedList>
-             </Box>
-           </HStack>
+           </Box>
         </Box>
-        <Box color='white' ml='120px' mt='50px' w='50%' textAlign="left" fontSize='13px'>
+        <Box color='white'  mt='50px' w='100%' textAlign="left" fontSize='13px'>
         Best viewed on Google Chrome 80+, Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+
         Copyright © 2022 Zee Entertainment Enterprises Ltd. All rights reserved.
         </Box>

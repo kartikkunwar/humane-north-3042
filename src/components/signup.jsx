@@ -29,14 +29,18 @@ const Signup=()=>{
                 setFlag(false);
                 setAl(true);
                 clearInterval(x); 
+                setTimeout(()=>{
+                    setAl(false)
+                    navigate("/otp")
+                },3000)
             }  
         },1000)
     }
 
-    const hide=()=>{
-        setAl(false)
-        navigate("/otp")
-    }
+    // const hide=()=>{
+    //     setAl(false)
+    //     navigate("/otp")
+    // }
     const mobile=(e)=>{
         let x=e.target.value;
         if(x.length===10){
@@ -46,38 +50,44 @@ const Signup=()=>{
     
     document.querySelector("body").style.backgroundColor="black"
     return(
-      <Container p={100} w="40%" margin="auto" position="relative">
-        <Box color="white">
+      <Box  w={{base:'80%',md:'60%',lg:'30%'}}   position="relative" m='auto' mt='100px'>
+        <Box color="white" w='90%' m='auto'  display='flex' justifyContent='center'>
         Create a new account
         </Box>
-        <Box marginTop={30} color="white">
+        <Box color="white" w={{base:'90%',md:'90%',lg:'70%'}} m='auto' mt={50} >
         Create an account to continue enjoying uninterrupted video and personalised experience
         </Box>
-        <Button marginTop={30} p={5} colorScheme='teal' w={320} bgColor="teal" borderRadius="10px" size='xs'>
-        <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>  Sign in
-        </Button>
-        <Box marginTop={30} marginLeft="42%" p={3} w="15%" borderRadius="50%" bgColor="violet">
+        <Box w={{base:'90%',md:'80%',lg:'70%'}} m='auto'>
+            <Button mt={30} p={5} colorScheme='teal' bgColor="teal" borderRadius="10px" w='100%'>
+            <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>  Sign in
+            </Button>
+        </Box>
+        <Box  w="10%" borderRadius="50%" m='auto' mt={30}  bgColor="violet">
             or
         </Box>
-        <Input onChange={mobile} marginTop={50} backgroundColor="black" color="white" borderTopStyle="hidden" borderRightStyle="hidden" borderLeftStyle="hidden" placeholder='Mobile Number' />
-        <Box marginTop={50} color="white">
+        <Box w={{base:'90%',md:'80%',lg:'70%'}} m='auto'>
+         <Input onChange={mobile} marginTop={50} backgroundColor="black" color="white" borderTopStyle="hidden" borderRightStyle="hidden" borderLeftStyle="hidden" placeholder='Mobile Number' w="100%"/>
+        </Box>
+        <Box  color="white" w={{base:'90%',md:'80%',lg:'70%'}} m='auto' mt={50}>
             By Proceeding you agree to our Terms Of Services & Private Policy.
         </Box>
-        <Button onClick={sendotp} style={num.length==10?abc:dis} marginTop={50} p={10} colorScheme='teal' w={320} bgColor="black" border="1px solid gray" color="gray" borderRadius="10px" size='xs'>
-           {!flag? "Send OTP":<CircularProgress isIndeterminate color='green.300' />}
-        </Button>
+        <Box w={{base:'90%',md:'80%',lg:'70%'}} m='auto'>
+            <Button onClick={sendotp} style={num.length==10?abc:dis} marginTop={50} p={10} colorScheme='teal' w="100%" bgColor="black" border="1px solid gray" color="gray" fontSize={21} borderRadius="10px" size='xs'>
+            {!flag? "Send OTP":<CircularProgress isIndeterminate color='green.300' />}
+            </Button>
+        </Box>
         <Box color="white">
             Already a user? <Link color='#8230c6' to="/login">Login</Link>
         </Box>
         {
-            al&&<Box id="alertBox"><Alert  status='success'>
-                        <AlertIcon id="icon" w={30} />
-                    <p>OTP sent to your mobile number {num}</p>
-                    <Button id="butt" onClick={hide}>OK</Button>
-            </Alert>
+            al&&<Box position='absolute' w='100%' m='auto' top='0'  display='flex' justifyContent='center' alignItems='center'>
+                <Alert status='success'>
+                    <AlertIcon />
+                    OTP has been sent to {num}
+                </Alert>
           </Box>
         }
-      </Container>
+      </Box>
     )
 }
 export default Signup;

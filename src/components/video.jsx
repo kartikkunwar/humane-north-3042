@@ -12,11 +12,11 @@ const Video=()=>{
     
     
   return <>
-        <Box display='flex' w='98%' margin='auto' mt={100} >
-            <Box w='50%' ml="50px">
-                <iframe width="830" src={player} height="400" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <Box display={{base:'block',md:'block',lg:'flex'}} w='98%' margin='auto' mt={100} >
+            <Box w={{base:'100%',md:'100%',lg:'50%'}} m='auto' ml={{base:'0px',md:'0px',lg:'50px'}}>
+                <iframe width='100%' src={player} height="400" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </Box>
-            <Box w='50%'>
+            <Box w={{base:'100%',md:'100%',lg:'50%'}}>
                 <Container bgColor='black' id="moviesugg1">
                     {
                         authState&&authState?.map((el,index)=>{

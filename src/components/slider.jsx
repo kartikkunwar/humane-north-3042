@@ -40,8 +40,9 @@ const Sliders=()=>{
    speed: 500,
    slidesToShow: 1,
    slidesToScroll: 1,
-   nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+   arrows: false,
+  //  nextArrow: <SampleNextArrow />,
+  //   prevArrow: <SamplePrevArrow />,
    autoplay: true,
       speed: 3000,
       autoplaySpeed: 3000,
@@ -55,8 +56,8 @@ const Sliders=()=>{
 
    
     return(
-       <Box w="80%" margin='auto' mt='100px' className="amitab">
-         <Slider {...settings}>
+       <Box w={{base:'100%',md:'80%',lg:'80%'}} m='auto' mt='100px' >
+         <Slider {...settings} w='100%'>
           {
             data&&data?.map((el,index)=>{
                return(

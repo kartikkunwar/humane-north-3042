@@ -43,7 +43,7 @@ const Sliderbottom=()=>{
 
    var settings = {
       buttons: true,
-      infinite: false,
+      infinite: true,
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 5,

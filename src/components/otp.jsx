@@ -54,14 +54,14 @@ const Otp=()=>{
     }
 
     return(
-        <Container p={100} w="40%" margin="auto">
-        <Box color="white">
-        Create a new account
+        <Box w={{base:'80%',md:'60%',lg:'40%'}} m="auto" mt='100px'>
+        <Box color="white" w={{base:'90%',md:'80%',lg:'70%'}} m='auto' >
+          Create a new account
         </Box>
-        <Box marginTop={50} color="white">
+        <Box  color="white" w={{base:'90%',md:'80%',lg:'70%'}} m='auto' mt={50}>
         An OTP has been sent to the entered mobile number 
         </Box>
-        <Box marginTop={50}>
+        <Box  w={{base:'90%',md:'80%',lg:'70%'}} m='auto' mt={50}>
         <ReactPinInput  length={4}  inputStyle={{
             borderColor: "white",
             margin: "0 13px",
@@ -72,14 +72,16 @@ const Otp=()=>{
             borderTopStyle:"hidden"
           }}  onChange={getValue} inputFocusStyle={{ borderColor: "#8230c6" }} secret/>
         </Box>
-        <Box display="flex" gap={85} marginTop={5} alignItems='center'  color="white" fontSize={12}>
+        <Box display="flex" gap={{base:'35px',md:'55px',lg:'65px'}}  alignItems='center' justifyContent='center'  color="white" w={{base:'90%',md:'80%',lg:'70%'}} m="auto" mt={5} fontSize={12} >
           <Box>{formattime(count)}</Box>
           <Box display="flex"><p>Did not get the OTP?</p><Button  h="20px" borderRadius="10px" style={count>0?dis:abc} bgColor="black" color='#8230c6 '>Resend</Button></Box>
         </Box>
-        <Button cursor="pointer" style={val.length>3?abc:dis} onClick={verify} marginTop={50} p={10} colorScheme='#8230c6' w={320}  border="1px solid gray" borderRadius="10px" size='xs'>
-            Verify
-        </Button>
-      </Container>
+        <Box w={{base:'90%',md:'80%',lg:'70%'}} m='auto'>
+          <Button cursor="pointer" style={val.length>3?abc:dis} onClick={verify} marginTop={50} p={10} colorScheme='#8230c6' border="1px solid gray" borderRadius="10px" w='100%'>
+              Verify
+          </Button>
+        </Box>
+      </Box>
     )
 }
 
