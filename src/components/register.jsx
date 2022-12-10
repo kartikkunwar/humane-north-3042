@@ -17,7 +17,7 @@ const Register=()=>{
      setInfo({...info,[e.target.name]:e.target.value})
    }
    const setData=()=>{
-      axios.post("https://zee5-cott.herokuapp.com/signup",info)
+      axios.post("https://glorious-tuna-outfit.cyclic.app/signup",info)
       .then((res)=>console.log(res)).catch((err)=>console.log(err))
 
       navigate("/login")

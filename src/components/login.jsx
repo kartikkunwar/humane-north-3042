@@ -28,7 +28,7 @@ const Login=()=>{
    const navigate=useNavigate();
 
    React.useEffect(()=>{
-    axios.get("https://zee5-cott.herokuapp.com/signup")
+    axios.get("https://glorious-tuna-outfit.cyclic.app/signup")
     .then((res)=>setBack(res.data))
     .catch((err)=>console.log(err))
    },[])

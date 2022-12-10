@@ -27,7 +27,7 @@ function SampleNextArrow(props) {
  }
 
 function get(){
-   return axios.get("https://zee5-cott.herokuapp.com/homepage")
+   return axios.get("https://glorious-tuna-outfit.cyclic.app/homepage")
 }
 
 const Sliders=()=>{
